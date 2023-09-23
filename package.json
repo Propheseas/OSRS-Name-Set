@@ -1,13 +1,13 @@
 {
   "name": "rsn-name-change-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "discord-name-change-bot",
+  "main": "index.ts",
   "scripts": {
     "start": "ts-node index.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Mordo Jayy - Star Miners",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^14.13.0",
     "ts-node": "^10.9.1",
