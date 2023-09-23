@@ -1,7 +1,7 @@
 // Import required packages
-import {Client, Events} from 'discord.js';
+import { Client, Events } from 'discord.js';
 import winston from 'winston';
-import {deleteChannelMessages, findChannelByName, findRoleByName} from './utils';
+import { deleteChannelMessages, findChannelByName, findRoleByName } from './utils';
 
 // Import config
 import config from './config.json';
@@ -16,13 +16,13 @@ const logger = winston.createLogger({
             format: winston.format.combine(
                 winston.format.timestamp({ format: 'YY-MM-DD HH:MM:SS' }),
                 winston.format.simple(),
-                winston.format.printf(msg => 
-                colorizer.colorize(msg.level, `${msg.timestamp} | ${msg.level.toUpperCase()} | ${msg.message}`)
+                winston.format.printf(msg =>
+                    colorizer.colorize(msg.level, `${msg.timestamp} | ${msg.level.toUpperCase()} | ${msg.message}`)
                 )
             ),
-          })
+        })
     ],
-  });
+});
 
 // Create a discord bot
 const bot = new Client({
@@ -40,7 +40,7 @@ bot.on(Events.ClientReady, async (client) => {
     await guild.roles.fetch();
     await guild.channels.fetch();
     if (!guild.members.me?.permissions.has('ManageNicknames', true)) {
-        logger.error('Missing permission "ChangeNickname" for guild!');
+        logger.error('Missing permission "ManageNicknames" for guild!');
         return;
     }
     if (!guild.members.me?.permissions.has('ManageRoles', true)) {
@@ -77,6 +77,7 @@ bot.on(Events.ClientReady, async (client) => {
             message.channel.send("Maximum character limit: 12 (Name is too long) - ONLY post your Runescape username, NO OTHER TEXT");
             return;
         }
+
         // Fetch person who posted the message and add the role
         try {
             await message.member.roles.add(roleToApply);

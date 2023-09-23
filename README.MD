@@ -10,6 +10,15 @@ Because it's been requested multiple times and Grams doesn't mind, I have create
 5. Fill in the fields in `config.json`
 6. run `npm start` to run the bot.
 
+## Required permissions
+The bot requires the following;
+- Message content privileged gateway
+- Manage nicknames
+- Manage members
+- Manage messages on the RSN channel
+
+Also make sure the role you want to apply is BELOW the role of the bot in your server's roles. Otherwise the bot cannot apply it.
+
 ## I DonT knoW TypEsCript
 Learn it! it's a great addition to javascript.  
 You can run `npx tsc` to convert the typescript code to javascript code.
